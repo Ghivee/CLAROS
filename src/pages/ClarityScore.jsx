@@ -213,7 +213,7 @@ export const ClarityScore = () => {
             </div>
 
             <p className="font-caption text-caption text-on-surface-variant mb-6 leading-relaxed">
-              Telah mencapai <strong className="text-clarity font-semibold">Tingkat {currentScore > 80 ? '3: Autotelik' : '2: Rekonstruktif'} Otonomi Kognitif</strong> dengan mempertahankan Clarity Score di atas {currentScore > 80 ? '80' : '60'} secara konsisten.
+              Reached <strong className="text-clarity font-semibold">Level {currentScore > 80 ? '3: Autotelic' : '2: Reconstructive'} Cognitive Autonomy</strong> by consistently maintaining a Clarity Score above {currentScore > 80 ? '80' : '60'} .
             </p>
 
             <button
@@ -221,14 +221,14 @@ export const ClarityScore = () => {
               className="w-full bg-transparent border border-outline-variant text-on-surface hover:text-signal hover:border-signal font-label-sm text-label-sm py-2.5 rounded-full transition-colors flex items-center justify-center gap-1.5 active:scale-95 duration-200"
             >
               <span className="material-symbols-outlined text-[16px] select-none">download</span>
-              Ekspor Buku Besar Kognitif
+              Export Cognitive Ledger
             </button>
           </div>
 
           {/* Shift Overlay Preview */}
           <div className="bg-abyss rounded-xl border border-outline-variant/30 flex flex-col overflow-hidden shadow-lg h-full justify-between">
             <div className="p-4 border-b border-outline-variant/30 flex justify-between items-center bg-surface-container-highest/40 select-none">
-              <h3 className="font-label-sm text-label-sm text-on-surface uppercase tracking-wider font-semibold">Pergeseran Peta Keyakinan</h3>
+              <h3 className="font-label-sm text-label-sm text-on-surface uppercase tracking-wider font-semibold">Belief Map Shift</h3>
               <span className="material-symbols-outlined text-ground text-[18px]">compare</span>
             </div>
 
