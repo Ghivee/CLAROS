@@ -3,41 +3,41 @@ import { useNavigate } from 'react-router-dom';
 import { useAudit } from '../context/AuditContext';
 
 const AUDIT_QUESTIONS = [
-  { id: 1, topic: 'politics', text: "Kebijakan Makan Bergizi Gratis Prabowo akan secara signifikan meningkatkan kualitas gizi anak Indonesia, sebanding dengan beban anggarannya." },
-  { id: 2, topic: 'economy', text: "Pelemahan nilai tukar Rupiah terhadap Dolar AS saat ini murni disebabkan oleh faktor eksternal (suku bunga The Fed), bukan karena kelemahan fundamental ekonomi domestik." },
-  { id: 3, topic: 'policy', text: "Pemindahan ibu kota ke IKN (Nusantara) adalah langkah krusial yang mutlak diperlukan untuk pemerataan ekonomi di luar Pulau Jawa." },
-  { id: 4, topic: 'economy', text: "Kenaikan harga BBM (Bensin) adalah satu-satunya solusi logis untuk menyelamatkan APBN dari jebolnya kuota subsidi energi." },
-  { id: 5, topic: 'politics', text: "Merosotnya indeks demokrasi di Indonesia merupakan harga yang pantas dibayar demi terwujudnya stabilitas politik dan percepatan pembangunan infrastruktur." },
-  { id: 6, topic: 'policy', text: "Privatisasi sebagian aset BUMN akan selalu membuat pengelolaannya menjadi lebih profesional dan menguntungkan negara." },
-  { id: 7, topic: 'politics', text: "Koalisi gemuk pemerintah di parlemen secara efektif menghilangkan peran oposisi yang kritis dan sehat dalam negara demokrasi." },
-  { id: 8, topic: 'economy', text: "Hutang luar negeri Indonesia yang terus bertambah masih dalam batas yang sangat aman dan terkelola dengan baik untuk mendanai proyek strategis." },
-  { id: 9, topic: 'policy', text: "Pembatasan pembelian BBM bersubsidi menggunakan aplikasi digital (seperti MyPertamina) efektif menekan kebocoran subsidi ke golongan menengah ke atas." },
-  { id: 10, topic: 'politics', text: "Gaya kepemimpinan militeristik Prabowo adalah exactly apa yang dibutuhkan Indonesia saat ini untuk menjaga ketegasan di mata internasional." },
-  { id: 11, topic: 'economy', text: "Kenaikan PPN (Pajak Pertambahan Nilai) menjadi 12% adalah kebijakan yang adil dan tidak membebani daya beli masyarakat kelas menengah-bawah secara signifikan." },
-  { id: 12, topic: 'policy', text: "Program lumbung pangan nasional (Food Estate) telah berhasil menjamin ketahanan pangan domestik di tengah ancaman krisis pangan global." },
-  { id: 13, topic: 'politics', text: "Aktivis dan mahasiswa yang sering demonstrasi cenderung ditunggangi oleh kepentingan politik tertentu dan menghambat kemajuan ekonomi negara." },
-  { id: 14, topic: 'economy', text: "Impor beras dan bahan pangan pokok lainnya adalah keniscayaan yang tidak bisa dihindari meskipun Indonesia adalah negara agraris." },
-  { id: 15, topic: 'policy', text: "Hilirisasi industri mineral (seperti nikel) telah terbukti secara signifikan memberikan kesejahteraan ekonomi langsung bagi masyarakat di sekitar area tambang." }
+  { id: 1, topic: 'politics', text: "Prabowo's Free Nutritious Meal policy will significantly improve the nutritional quality of Indonesian children, commensurate with its budgetary burden." },
+  { id: 2, topic: 'economy', text: "The current weakening of the Rupiah against the US Dollar is purely due to external factors (The Fed's interest rates), not domestic economic fundamental weaknesses." },
+  { id: 3, topic: 'policy', text: "The relocation of the capital to IKN (Nusantara) is a crucial step absolutely necessary for economic equality outside Java Island." },
+  { id: 4, topic: 'economy', text: "The increase in fuel prices (BBM) is the only logical solution to save the state budget (APBN) from a blown energy subsidy quota." },
+  { id: 5, topic: 'politics', text: "The decline of the democracy index in Indonesia is a fair price to pay for realizing political stability and accelerated infrastructure development." },
+  { id: 6, topic: 'policy', text: "The partial privatization of state-owned enterprises (BUMN) assets will always make their management more professional and profitable for the state." },
+  { id: 7, topic: 'politics', text: "The fat government coalition in parliament effectively eliminates the role of a critical and healthy opposition in a democratic state." },
+  { id: 8, topic: 'economy', text: "Indonesia's ever-growing foreign debt is still within very safe and well-managed limits to fund strategic projects." },
+  { id: 9, topic: 'policy', text: "The restriction of subsidized fuel purchases using digital apps (like MyPertamina) effectively suppresses subsidy leakage to the upper middle class." },
+  { id: 10, topic: 'politics', text: "Prabowo's militaristic leadership style is exactly what Indonesia needs right now to maintain firmness internationally." },
+  { id: 11, topic: 'economy', text: "The VAT (Value Added Tax) increase to 12% is a fair policy and does not significantly burden the purchasing power of the lower-middle class." },
+  { id: 12, topic: 'policy', text: "The national food estate program has successfully guaranteed domestic food security amid the threat of a global food crisis." },
+  { id: 13, topic: 'politics', text: "Activists and students who frequently demonstrate tend to be ridden by certain political interests and hinder the country's economic progress." },
+  { id: 14, topic: 'economy', text: "The import of rice and other staple foods is an unavoidable necessity even though Indonesia is an agrarian country." },
+  { id: 15, topic: 'policy', text: "The downstreaming of the mineral industry (like nickel) has proven to significantly provide direct economic welfare for the communities around the mining areas." }
 ];
 
 const SOURCE_OPTIONS = [
-  { value: 0, label: "Media Sosial", icon: "forum", desc: "TikTok, X, Instagram, Facebook, utas viral, dll." },
-  { value: 1, label: "Media Populer / Agregator", icon: "newspaper", desc: "Situs berita online, portal informasi populer, rangkuman." },
-  { value: 2, label: "Sumber Primer / Wawancara", icon: "menu_book", desc: "Buku rujukan utama, wawancara tokoh kunci secara utuh." },
-  { value: 3, label: "Jurnal Riset / Institusi Resmi", icon: "verified", desc: "Artikel ilmiah peer-reviewed, statistik resmi, konsensus ahli." }
+  { value: 0, label: "Social Media", icon: "forum", desc: "TikTok, X, Instagram, Facebook, viral threads, etc." },
+  { value: 1, label: "Popular Media / Aggregator", icon: "newspaper", desc: "Online news sites, popular info portals, summaries." },
+  { value: 2, label: "Primary Source / Interview", icon: "menu_book", desc: "Main reference books, full interviews of key figures." },
+  { value: 3, label: "Research Journal / Official Institution", icon: "verified", desc: "Peer-reviewed scientific articles, official stats, expert consensus." }
 ];
 
 const EXPOSURE_OPTIONS = [
-  { value: 0, label: "Penerimaan Pasif", icon: "sensors", desc: "Muncul di FYP/rekomendasi, dibagikan teman, atau didengar tanpa sengaja." },
-  { value: 1, label: "Penelusuran Aktif", icon: "search", desc: "Saya mencari tahu sendiri secara sengaja karena ingin memverifikasi topiknya." }
+  { value: 0, label: "Passive Reception", icon: "sensors", desc: "Appeared on FYP/recommendations, shared by friends, or overheard." },
+  { value: 1, label: "Active Search", icon: "search", desc: "I actively searched for it deliberately because I wanted to verify the topic." }
 ];
 
 const CONFIDENCE_LEVELS = [
-  { value: 1, label: "Sangat Ragu" },
-  { value: 2, label: "Ragu" },
-  { value: 3, label: "Netral / Sedang" },
-  { value: 4, label: "Yakin" },
-  { value: 5, label: "Sangat Yakin" }
+  { value: 1, label: "Very Doubtful" },
+  { value: 2, label: "Doubtful" },
+  { value: 3, label: "Neutral" },
+  { value: 4, label: "Confident" },
+  { value: 5, label: "Very Confident" }
 ];
 
 export const BeliefAudit = () => {
@@ -102,9 +102,9 @@ export const BeliefAudit = () => {
         <div className="flex justify-between items-center mb-2 font-caption text-caption text-ground">
           <span className="flex items-center gap-1 select-none">
             <span className="material-symbols-outlined text-[16px] text-signal">fact_check</span>
-            AUDIT KEYAKINAN AKTIF
+            ACTIVE BELIEF AUDIT
           </span>
-          <span>Pertanyaan {currentStep + 1} dari {AUDIT_QUESTIONS.length}</span>
+          <span>Question {currentStep + 1} of {AUDIT_QUESTIONS.length}</span>
         </div>
         <div className="w-full bg-[#2c2c2a] h-2 rounded-full overflow-hidden">
           <div 
@@ -134,7 +134,7 @@ export const BeliefAudit = () => {
           {/* Question 1: Source */}
           <div>
             <label className="block font-label-sm text-label-sm text-on-surface-variant mb-3">
-              1. Dari mana Anda pertama kali mendengar opini ini?
+              1. Where did you first hear this opinion?
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {SOURCE_OPTIONS.map(opt => (
@@ -164,7 +164,7 @@ export const BeliefAudit = () => {
           {/* Question 2: Exposure Type */}
           <div>
             <label className="block font-label-sm text-label-sm text-on-surface-variant mb-3">
-              2. Bagaimana Anda mendapatkan informasi ini?
+              2. How did you get this information?
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {EXPOSURE_OPTIONS.map(opt => (
@@ -194,7 +194,7 @@ export const BeliefAudit = () => {
           {/* Question 3: Confidence Slider */}
           <div>
             <div className="flex justify-between font-label-sm text-label-sm text-on-surface-variant mb-3">
-              <span>3. Seberapa yakin Anda dengan opini ini?</span>
+              <span>3. How confident are you in this opinion?</span>
               <span className="text-signal font-semibold font-code">
                 {CONFIDENCE_LEVELS.find(c => c.value === currentAnswer.confidenceAnswer)?.label}
               </span>
@@ -233,7 +233,7 @@ export const BeliefAudit = () => {
             }`}
           >
             <span className="material-symbols-outlined text-[18px]">arrow_back</span>
-            Sebelumnya
+            Previous
           </button>
           
           <button
@@ -242,12 +242,12 @@ export const BeliefAudit = () => {
           >
             {currentStep === AUDIT_QUESTIONS.length - 1 ? (
               <>
-                Selesai & Analisis
+                Complete & Analyze
                 <span className="material-symbols-outlined text-[18px]">done_all</span>
               </>
             ) : (
               <>
-                Selanjutnya
+                Next
                 <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
               </>
             )}

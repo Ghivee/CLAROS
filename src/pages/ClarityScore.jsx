@@ -103,7 +103,7 @@ export const ClarityScore = () => {
         {/* Current Score Panel */}
         <div className="glass-panel p-4 rounded-xl flex items-center gap-4 min-w-[200px] border border-outline-variant/30">
           <div className="flex flex-col">
-            <span className="font-caption text-caption text-ground font-medium select-none">Skor Saat Ini</span>
+            <span className="font-caption text-caption text-ground font-medium select-none">Current Score</span>
             <div className="flex items-baseline gap-1.5">
               <span className="font-display-h1 text-headline-h2 text-signal font-extrabold">{currentScore}</span>
               {progressDiff !== 0 && (

@@ -19,8 +19,8 @@ export const CriticalGym = () => {
 
   // Level 3: Debate states
   const [debateMessages, setDebateMessages] = useState([
-    { id: 1, author: "AnonSocrates", text: "Kenaikan harga BBM adalah realita ekonomi global, subsidi hanya membakar uang negara untuk pihak yang tidak tepat sasaran.", role: "pro" },
-    { id: 2, author: "KognitifEmpati", text: "Namun mencabut subsidi di saat daya beli anjlok justru memicu inflasi harga pangan yang mencekik kelas menengah ke bawah.", role: "contra" }
+    { id: 1, author: "AnonSocrates", text: "Fuel price hikes are a global economic reality, subsidies only burn state money for the wrong target.", role: "pro" },
+    { id: 2, author: "KognitifEmpati", text: "However, removing subsidies when purchasing power drops will trigger food price inflation that strangles the lower middle class.", role: "contra" }
   ]);
   const [debateInput, setDebateInput] = useState('');
 
@@ -99,10 +99,10 @@ export const CriticalGym = () => {
           <div className="bg-surface p-4 rounded-lg border border-outline-variant/30 mb-6">
             <div className="font-label-sm text-label-sm text-alert flex items-center gap-1.5 mb-2 font-semibold select-none">
               <span className="material-symbols-outlined text-[16px]">info</span>
-              Opini Oposisi Untuk Didekonstruksi
+              Opposition Opinion to Deconstruct
             </div>
             <p className="font-body-md text-on-surface-variant italic">
-              "Program Makan Bergizi Gratis Prabowo hanyalah pemborosan APBN triliunan rupiah yang berisiko menciptakan hiperinflasi tanpa menyelesaikan akar kemiskinan."
+              "Prabowo's Free Nutritious Meal Program is just a waste of trillions of rupiah from the APBN, risking hyperinflation without solving the root of poverty."
             </p>
           </div>
 
@@ -115,7 +115,7 @@ export const CriticalGym = () => {
                 <textarea
                   value={steelManInput}
                   onChange={(e) => setSteelManInput(e.target.value)}
-                  placeholder="Meskipun membebani APBN, investasi gizi sejak dini dapat dibenarkan karena peningkatan kualitas kognitif generasi akan berdampak eksponensial pada ekonomi..."
+                  placeholder="Although it burdens the APBN, early nutritional investment can be justified because the cognitive improvement of the generation will have an exponential impact on the economy..."
                   rows={5}
                   className="w-full bg-[#1c1b1b] border border-outline-variant rounded-lg p-3 text-on-surface focus:border-signal outline-none transition-colors"
                 ></textarea>
@@ -149,7 +149,7 @@ export const CriticalGym = () => {
 
                 <div className="flex items-baseline gap-1.5 mb-6">
                   <span className="text-4xl font-display-h1 font-extrabold text-signal">{steelManResult.score}</span>
-                  <span className="font-caption text-caption text-ground">/ 100 Skor Objektivitas</span>
+                  <span className="font-caption text-caption text-ground">/ 100 Objectivity Score</span>
                 </div>
 
                 {/* Fallacies */}
@@ -335,7 +335,7 @@ export const CriticalGym = () => {
                     <h3 className="font-headline-h4 text-headline-h4 text-clarity">Discuss: Structured Debate</h3>
                   </div>
                   <p className="font-caption text-caption text-ground">
-                    Debat kognitif peer-to-peer terstruktur dengan moderasi netral. Selesaikan Level 2 untuk membuka.
+                    Debat kognitif peer-to-peer terstruktur dengan moderasi netral. Completedkan Level 2 untuk membuka.
                   </p>
                 </div>
                 
@@ -345,7 +345,7 @@ export const CriticalGym = () => {
                     className="w-full md:w-auto bg-surface-container-lowest text-outline border border-outline-variant/30 px-5 py-2 rounded-full font-label-sm text-label-sm cursor-not-allowed text-center flex items-center justify-center gap-1.5"
                   >
                     <span className="material-symbols-outlined text-[18px]">lock</span>
-                    Terkunci
+                    Locked
                   </button>
                 ) : (
                   <button
@@ -452,7 +452,7 @@ export const CriticalGym = () => {
               <h3 className="font-headline-h3 text-headline-h3 text-clarity mb-1 font-extrabold">
                 {user.totalXP.toLocaleString()} XP
               </h3>
-              <p className="font-caption text-caption text-ground font-medium">Mental Reps Selesai</p>
+              <p className="font-caption text-caption text-ground font-medium">Mental Reps Completed</p>
               
               <div className="mt-4 w-full px-2 pt-3 border-t border-outline-variant/20">
                 <div className="flex justify-between font-caption text-caption text-ground mb-1.5">

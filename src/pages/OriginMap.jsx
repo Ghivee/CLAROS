@@ -27,7 +27,7 @@ export const OriginMap = () => {
     return (
       <div className="flex flex-col items-center justify-center text-center py-20 bg-abyss border border-outline-variant/30 rounded-xl max-w-[700px] mx-auto">
         <span className="material-symbols-outlined text-signal text-5xl mb-4 animate-bounce">radar</span>
-        <h2 className="font-headline-h2 text-headline-h2 text-clarity mb-2">Peta Keyakinan Belum Aktif</h2>
+        <h2 className="font-headline-h2 text-headline-h2 text-clarity mb-2">Peta Confidence Belum Aktif</h2>
         <p className="font-body-md text-body-md text-ground max-w-[500px] mb-8">
           Origin Map memerlukan data audit keyakinan Anda terlebih dahulu. Silakan ikuti tes Belief Audit pertama Anda untuk memetakan keyakinan.
         </p>
@@ -112,16 +112,16 @@ export const OriginMap = () => {
         return (
           <div className="bg-surface-container-highest border border-outline-variant rounded p-3 shadow-xl z-20">
             <div className="text-ground font-label-sm text-label-sm mb-1 uppercase tracking-wider">Benchmark Rata-rata</div>
-            <div className="font-caption text-caption text-on-surface-variant">Sumber: {data.source}</div>
-            <div className="font-caption text-caption text-on-surface-variant">Keyakinan Rata-rata: {data.y}%</div>
+            <div className="font-caption text-caption text-on-surface-variant">Source: {data.source}</div>
+            <div className="font-caption text-caption text-on-surface-variant">Confidence Rata-rata: {data.y}%</div>
           </div>
         );
       }
       return (
         <div className="bg-surface-container-highest border border-[#474553]/60 rounded p-3 shadow-xl z-20">
-          <div className="text-clarity font-label-sm text-label-sm font-semibold capitalize mb-1">Topik: {data.topic}</div>
-          <div className="font-caption text-caption text-on-surface-variant">Sumber: {data.source}</div>
-          <div className="font-caption text-caption text-on-surface-variant">Keyakinan: {data.confidence}%</div>
+          <div className="text-clarity font-label-sm text-label-sm font-semibold capitalize mb-1">Topic: {data.topic}</div>
+          <div className="font-caption text-caption text-on-surface-variant">Source: {data.source}</div>
+          <div className="font-caption text-caption text-on-surface-variant">Confidence: {data.confidence}%</div>
           <div className="font-caption text-[11px] text-signal mt-1 border-t border-outline-variant/30 pt-1">{data.lastExposure}</div>
         </div>
       );
@@ -190,7 +190,7 @@ export const OriginMap = () => {
                 <XAxis 
                   type="number" 
                   dataKey="x" 
-                  name="Sumber" 
+                  name="Source" 
                   domain={[0, 100]} 
                   ticks={[20, 45, 70, 90]}
                   tickFormatter={(val) => {
@@ -208,7 +208,7 @@ export const OriginMap = () => {
                 <YAxis 
                   type="number" 
                   dataKey="y" 
-                  name="Keyakinan" 
+                  name="Confidence" 
                   domain={[0, 100]} 
                   ticks={[15, 50, 85]}
                   tickFormatter={(val) => {
@@ -231,7 +231,7 @@ export const OriginMap = () => {
 
                 {/* User Points */}
                 <Scatter 
-                  name="Keyakinan Anda" 
+                  name="Confidence Anda" 
                   data={currentPoints} 
                   fill="#7C6EE8"
                   onClick={handleNodeClick}
@@ -272,7 +272,7 @@ export const OriginMap = () => {
             
             {/* Visual Zone Labels */}
             <div className="absolute top-4 left-16 text-alert font-caption text-[11px] uppercase tracking-wider flex items-center gap-1 opacity-70 select-none pointer-events-none">
-              <span className="material-symbols-outlined text-[14px]">warning</span> Zona Echo Chamber
+              <span className="material-symbols-outlined text-[14px]">warning</span> Echo Chamber Zone
             </div>
             <div className="absolute top-4 right-6 text-growth font-caption text-[11px] uppercase tracking-wider flex items-center gap-1 opacity-70 select-none pointer-events-none">
               <span className="material-symbols-outlined text-[14px]">verified</span> Zona Terverifikasi
@@ -377,10 +377,10 @@ export const OriginMap = () => {
                  selectedNode.x > 60 && selectedNode.y > 60 ? 'Verifiable Node' : 'Unverified Node'}
               </span>
               <h4 className="font-headline-h3 text-headline-h4 text-clarity mb-1 font-bold capitalize">
-                Topik: {selectedNode.topic}
+                Topic: {selectedNode.topic}
               </h4>
               <p className="font-caption text-caption text-ground mb-4">
-                Sumber Awal: <strong className="text-on-surface-variant">{selectedNode.source}</strong> ({selectedNode.lastExposure})
+                Source Awal: <strong className="text-on-surface-variant">{selectedNode.source}</strong> ({selectedNode.lastExposure})
               </p>
               
               {/* Analysis recommendation alert box */}
@@ -397,8 +397,8 @@ export const OriginMap = () => {
                 </div>
                 <p className="font-caption text-[12px] text-on-surface-variant leading-relaxed">
                   {selectedNode.x < 40 && selectedNode.y > 60 
-                    ? `Keyakinan Anda sangat tinggi (${selectedNode.confidence}%) namun didapat dari paparan pasif media sosial. Kurangi bias konformitas dengan melatih pemikiran kritis di Gym.`
-                    : "Keyakinan Anda proporsional dengan kualitas validitas informasi primer. Pertahankan penelusuran aktif Anda."
+                    ? `Confidence Anda sangat tinggi (${selectedNode.confidence}%) namun didapat dari paparan pasif media sosial. Kurangi bias konformitas dengan melatih pemikiran kritis di Gym.`
+                    : "Confidence Anda proporsional dengan kualitas validitas informasi primer. Pertahankan penelusuran aktif Anda."
                   }
                 </p>
               </div>

@@ -67,12 +67,12 @@ export const analyzeAuditResults = (answers) => {
   });
 
   const recommendations = {
-    health: "Kami mendeteksi tingkat bias sedang pada topik Kesehatan. Algoritma Anda condong menyajikan klaim kebugaran instan. Cobalah membaca minimal satu artikel riset biologi dari jurnal peer-reviewed terkemuka minggu ini.",
-    politics: "Echo chamber terdeteksi kuat pada topik Sosial-Politik. Perspektif Anda didominasi rekomendasi feed video pendek. Lakukan latihan Steel-manning dengan menulis kembali argumen oposisi politik Anda secara netral.",
-    tech: "Opini Teknologi Anda terbentuk pasif oleh influencer industri. Rujuklah ke repositori open source resmi atau jurnal teknik IEEE untuk menyeimbangkan pemahaman regulasi AI.",
-    science: "Keyakinan Sains Anda banyak bersumber dari media sosial pop-science. Cari sumber primer di publikasi resmi BRIN atau jurnal Nature sebelum membagikan utas ilmiah berikutnya.",
-    wealth: "Perspektif Keuangan/Investasi Anda sangat berisiko terpengaruh FOMO media sosial. Batasi akun finansial pop dan bandingkan analisis teknis pasar modal di media ekonomi teregulasi.",
-    general: "Tingkat paparan pasif media sosial Anda cukup signifikan. Lakukan detoks feed algoritma selama 24 jam dan biasakan melakukan penelusuran aktif menggunakan kata kunci netral."
+    health: "We detected a moderate bias level in the Health topic. Your algorithm tends to present instant fitness claims. Try reading at least one biology research article from a leading peer-reviewed journal this week.",
+    politics: "Strong echo chamber detected in the Socio-Political topic. Your perspective is dominated by short video feed recommendations. Do a Steel-manning exercise by rewriting your political opposition's argument neutrally.",
+    tech: "Your Tech opinions are passively shaped by industry influencers. Refer to official open source repositories or IEEE engineering journals to balance your understanding of AI regulations.",
+    science: "Your Science beliefs are largely sourced from pop-science social media. Seek primary sources in official BRIN publications or Nature journal before sharing the next scientific thread.",
+    wealth: "Your Financial/Investment perspective is highly at risk of being influenced by social media FOMO. Limit pop finance accounts and compare capital market technical analysis in regulated economic media.",
+    general: "Your level of passive social media exposure is quite significant. Detox your algorithm feed for 24 hours and make it a habit to do active searches using neutral keywords."
   };
 
   // Generate dynamic origin map points
@@ -117,7 +117,7 @@ export const evaluateSteelManning = (inputText) => {
   if (length < 30) {
     return {
       success: false,
-      error: "Argumen terlalu pendek. Minimal 30 karakter untuk analisis bermakna."
+      error: "Argument too short. Minimum 30 characters for meaningful analysis."
     };
   }
 
@@ -144,26 +144,26 @@ export const evaluateSteelManning = (inputText) => {
     score += 25;
   } else {
     fallacies.push("Straw Man Tendency");
-    suggestions.push("Gunakan kalimat transisi netral seperti 'Argumen pendukung posisi ini bersandar pada...' untuk merepresentasikan klaim awal mereka.");
+    suggestions.push("Use neutral transition sentences like 'The supporting argument for this position relies on...' to represent their initial claim.");
   }
 
   if (hasEmotionalTone) {
     score -= 20;
     fallacies.push("Emotional Loading");
-    suggestions.push("Hindari kata sifat bermuatan emosi negatif (seperti 'bodoh', 'salah besar') yang mendiskreditkan lawan secara tidak adil.");
+    suggestions.push("Avoid negative emotionally loaded adjectives (like 'stupid', 'completely wrong') that unfairly discredit the opponent.");
   } else {
     score += 10;
   }
 
   score = Math.max(10, Math.min(100, score));
-  const rating = score >= 80 ? "Sangat Objektif" : score >= 50 ? "Cukup Objektif" : "Bias Terdeteksi";
+  const rating = score >= 80 ? "Highly Objective" : score >= 50 ? "Fairly Objective" : "Bias Detected";
 
   return {
     success: true,
     score,
     rating,
     fallacies,
-    suggestions: suggestions.length > 0 ? suggestions : ["Luar biasa! Argumen Anda terstruktur secara logis dan menyajikan sudut pandang lawan dengan integritas intelektual."],
+    suggestions: suggestions.length > 0 ? suggestions : ["Excellent! Your argument is logically structured and presents the opponent's point of view with intellectual integrity."],
     xpEarned: score >= 50 ? 150 : 50
   };
 };
@@ -173,95 +173,95 @@ export const evaluateSteelManning = (inputText) => {
  */
 export const SCENARIO_STEPS = {
   start: {
-    dialogue: "Sebuah artikel opini viral di media sosial mengeklaim bahwa Program Makan Bergizi Gratis pemerintah akan memicu hiperinflasi yang setara dengan krisis moneter 1998 dalam 2 tahun ke depan. Kolom komentar dipenuhi influencer ekonomi independen yang setuju. Apa respons awal Anda sebelum meretweet?",
+    dialogue: "A viral opinion article on social media claims that the government's Free Nutritious Meal Program will trigger hyperinflation equivalent to the 1998 monetary crisis within the next 2 years. The comments section is filled with independent economic influencers who agree. What is your initial response before retweeting?",
     options: [
       {
-        text: "Bagikan segera! Para influencer itu biasanya punya 'orang dalam' yang tahu data asli, peringatan ini penting untuk masyarakat.",
+        text: "Share immediately! Those influencers usually have 'insiders' who know the real data, this warning is important for the public.",
         nextStep: "fallacy_trap",
         xp: 10
       },
       {
-        text: "Lakukan pencarian silang di portal berita ekonomi arus utama (misal: CNBC Indonesia/Bisnis.com) untuk melihat analisis rasio utang dan PDB yang sebenarnya.",
+        text: "Cross-search on mainstream economic news portals (e.g., CNBC Indonesia/Bisnis.com) to see the actual debt-to-GDP ratio analysis.",
         nextStep: "verification_start",
         xp: 50
       },
       {
-        text: "Tanyakan pendapat di grup chat keluarga apakah harga sembako di pasar memang sudah mulai naik drastis.",
+        text: "Ask for opinions in the family group chat whether the price of basic necessities in the market has indeed started to rise drastically.",
         nextStep: "anecdotal_trap",
         xp: 20
       }
     ]
   },
   fallacy_trap: {
-    dialogue: "Anda memilih percaya penuh karena bias otoritas (influencer). Tiba-tiba salah satu jurnalis investigasi mengungkap bahwa influencer tersebut dibayar oleh kubu oposisi untuk membuat framing negatif tanpa data APBN yang solid. Algoritma Anda sekarang mendominasi feeds dengan teori konspirasi kebangkrutan negara. Bagaimana Anda merekonstruksi filter bubble ini?",
+    dialogue: "You chose to trust completely due to authority bias (influencer). Suddenly an investigative journalist reveals that the influencer was paid by the opposition to create negative framing without solid APBN data. Your algorithm now dominates feeds with state bankruptcy conspiracy theories. How do you reconstruct this filter bubble?",
     options: [
       {
-        text: "Abaikan saja, biarkan feed berjalan normal, toh politik memang kotor.",
+        text: "Just ignore it, let the feed run normally, politics is dirty anyway.",
         nextStep: "fail_end",
         xp: 0
       },
       {
-        text: "Gunakan menu 'Tidak Tertarik' pada semua konten agitasi tersebut, lalu cari 3 analisis ekonomi makro dari akademisi universitas terkemuka secara aktif untuk melatih ulang algoritma.",
+        text: "Use the 'Not Interested' menu on all such agitation content, then actively search for 3 macroeconomic analyses from leading university academics to retrain the algorithm.",
         nextStep: "success_end",
         xp: 100
       }
     ]
   },
   anecdotal_trap: {
-    dialogue: "Keluarga Anda merespons dengan keluhan bahwa harga telur memang naik minggu ini (bukti anekdot). Anda merasa teori krisis 1998 itu pasti benar karena harga kebutuhan pokok mulai naik. Langkah apa yang bisa memperkuat kognisi Anda?",
+    dialogue: "Your family responded with complaints that egg prices did rise this week (anecdotal evidence). You feel the 1998 crisis theory must be true because basic necessity prices are rising. What step can strengthen your cognition?",
     options: [
       {
-        text: "Menerima realita pasar tradisional sebagai indikator tunggal bahwa ekonomi makro negara akan hancur besok.",
+        text: "Accepting traditional market realities as the sole indicator that the country's macroeconomy will collapse tomorrow.",
         nextStep: "fail_end",
         xp: 10
       },
       {
-        text: "Memahami bias ketersediaan (Availability Heuristic) ini, lalu mengecek laporan inflasi resmi BPS (Badan Pusat Statistik) untuk melihat tren harga pangan nasional vs global.",
+        text: "Understanding this Availability Heuristic bias, then checking the official BPS (Statistics Indonesia) inflation report to see national vs. global food price trends.",
         nextStep: "verification_start",
         xp: 60
       }
     ]
   },
   verification_start: {
-    dialogue: "Dari riset data sekunder resmi, Anda menemukan bahwa program ini memang melebarkan defisit APBN mendekati batas 3%, namun tidak ada indikator dari Bank Dunia atau IMF yang memprediksi hiperinflasi, dan nilai tukar Rupiah masih sesuai dengan tren regional. Bagaimana Anda merespons di kolom komentar asal?",
+    dialogue: "From official secondary data research, you found that this program does widen the APBN deficit approaching the 3% limit, but there are no indicators from the World Bank or IMF predicting hyperinflation, and the Rupiah exchange rate is still in line with regional trends. How do you respond in the original comment section?",
     options: [
       {
-        text: "Tulis komentar provokatif: 'Kalian penyebar hoax oposisi! Inflasi kita masih aman 2.5%, dasar buzzer pembuat panik!'",
+        text: "Write a provocative comment: 'You opposition hoax spreaders! Our inflation is still safely at 2.5%, you panic-inducing buzzers!'",
         nextStep: "aggression_fail",
         xp: 20
       },
       {
-        text: "Tulis penjelasan tenang: 'Sebagai pelengkap informasi, laporan Bank Dunia dan data BPS menunjukkan defisit fiskal kita memang melebar ke 2.8%, namun likuiditas masih kuat dan inflasi inti terjaga, jauh dari risiko krisis struktural ala 1998.'",
+        text: "Write a calm explanation: 'As additional info, World Bank reports and BPS data show our fiscal deficit has indeed widened to 2.8%, but liquidity remains strong and core inflation is maintained, far from the risk of a 1998-style structural crisis.'",
         nextStep: "success_end",
         xp: 150
       }
     ]
   },
   aggression_fail: {
-    dialogue: "Komentar agresif Anda memicu debat kusir emosional. Influencer memblokir Anda, dan algoritma media sosial menandai interaksi Anda sebagai 'konfrontatif', membuat Anda mendapat lebih banyak konten kontroversial. Level gagal. Mau coba lagi?",
+    dialogue: "Your aggressive comment triggers an emotional, pointless debate. The influencer blocks you, and the social media algorithm flags your interaction as 'confrontational', feeding you more controversial content. Level failed. Want to try again?",
     options: [
       {
-        text: "Ulangi latihan dari awal",
+        text: "Restart the exercise from the beginning",
         nextStep: "start",
         xp: 0
       }
     ]
   },
   fail_end: {
-    dialogue: "Latihan selesai. Anda membiarkan filter bubble dan emosi mengendalikan proses penalaran Anda. Skor penalaran Anda rendah (+30 XP). Silakan ulangi untuk melatih kedaulatan kognitif Anda.",
+    dialogue: "Exercise finished. You let your filter bubble and emotions control your reasoning process. Your reasoning score is low (+30 XP). Please repeat to train your cognitive sovereignty.",
     options: [
       {
-        text: "Mulai Ulang Gym",
+        text: "Restart Gym",
         nextStep: "start",
         xp: 0
       }
     ]
   },
   success_end: {
-    dialogue: "Luar biasa! Anda berhasil menepis jebakan bias konformitas sosial dan membongkar bias anekdotal. Anda juga berhasil melatih ulang feeds algoritma Anda secara proaktif. Kedaulatan kognitif berhasil dipertahankan (+200 XP).",
+    dialogue: "Excellent! You successfully deflected the social conformity bias trap and dismantled the anecdotal bias. You also successfully retrained your algorithm feeds proactively. Cognitive sovereignty defended (+200 XP).",
     options: [
       {
-        text: "Selesaikan Latihan",
+        text: "Finish Exercise",
         nextStep: "start", // loops back to start for replayability
         xp: 0,
         isCompleted: true

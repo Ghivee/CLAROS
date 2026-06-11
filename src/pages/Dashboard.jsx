@@ -19,14 +19,14 @@ export const Dashboard = () => {
           You think you formed your own opinions.
         </h1>
         <p className="font-body-lg text-body-lg text-on-surface-variant max-w-[600px] mb-8">
-          <strong className="text-signal font-semibold">52%</strong> keyakinan yang Anda miliki hari ini tidak benar-benar Anda pilih secara aktif. Lacak bias kognitif Anda, uraikan lapisan linguistik tersembunyi, dan rebut kembali kedaulatan berpikir Anda.
+          <strong className="text-signal font-semibold">52%</strong> of the beliefs you hold today were not actively chosen. Track your cognitive biases, unravel hidden linguistic layers, and reclaim your sovereignty of thought.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
             to="/audit"
             className="px-8 py-4 bg-gradient-signal-dark rounded-full text-white font-headline-h4 text-headline-h4 hover:shadow-[0_0_20px_rgba(124,110,232,0.4)] active:scale-95 transition-all duration-300 flex items-center group shadow-lg"
           >
-            {hasTakenAudit ? 'Mulai Audit Ulang' : 'Mulai Audit Keyakinan Anda'}
+            {hasTakenAudit ? 'Retake Audit' : 'Start Your Belief Audit'}
             <span className="material-symbols-outlined ml-2 group-hover:translate-x-1 transition-transform">
               arrow_forward
             </span>
@@ -36,7 +36,7 @@ export const Dashboard = () => {
               to="/map"
               className="px-8 py-4 bg-transparent border border-outline rounded-full text-on-surface font-headline-h4 text-headline-h4 hover:border-signal hover:text-signal transition-all duration-300"
             >
-              Lihat Peta Keyakinan Anda
+              View Your Origin Map
             </Link>
           )}
         </div>
@@ -55,9 +55,9 @@ export const Dashboard = () => {
             <div className="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center mb-4 text-pulse">
               <span className="material-symbols-outlined">history_edu</span>
             </div>
-            <h3 className="font-headline-h4 text-headline-h4 text-clarity mb-1">Etimologi Latin (Clarus)</h3>
+            <h3 className="font-headline-h4 text-headline-h4 text-clarity mb-1">Latin Etymology (Clarus)</h3>
             <p className="font-caption text-caption text-on-surface-variant mb-4">
-              Telusuri akar kata dari konsep inti Anda. Temukan makna literal sebelum distorsi sejarah dan sosial media.
+              Trace the etymological roots of your core concepts. Discover the literal meaning before historical and social media distortion.
             </p>
             <div className="inline-flex px-2 py-1 bg-surface rounded-full text-signal font-code text-code text-[12px] border border-outline-variant">
               Root Extraction
@@ -69,9 +69,9 @@ export const Dashboard = () => {
             <div className="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center mb-4 text-pulse">
               <span className="material-symbols-outlined">translate</span>
             </div>
-            <h3 className="font-headline-h4 text-headline-h4 text-clarity mb-1">Konteks Budaya (Claro)</h3>
+            <h3 className="font-headline-h4 text-headline-h4 text-clarity mb-1">Cultural Context (Claro)</h3>
             <p className="font-caption text-caption text-on-surface-variant mb-4">
-              Uji pergeseran makna semantik di berbagai batas bahasa. Singkap bias tersembunyi yang diturunkan oleh budaya media barat.
+              Test semantic shifts across language boundaries. Uncover hidden biases passed down by western media culture.
             </p>
             <div className="inline-flex px-2 py-1 bg-surface rounded-full text-signal font-code text-code text-[12px] border border-outline-variant">
               Cross-Lingual Map
@@ -85,7 +85,7 @@ export const Dashboard = () => {
             </div>
             <h3 className="font-headline-h4 text-headline-h4 text-clarity mb-1">The Hidden Layer</h3>
             <p className="font-caption text-caption text-on-surface-variant mb-4">
-              Bedah asumsi implisit dan konotasi tak terucap yang tertanam kuat dalam kosa kata pembentuk opini Anda sehari-hari.
+              Dissect implicit assumptions and unspoken connotations deeply embedded in your daily opinion-forming vocabulary.
             </p>
             <div className="inline-flex px-2 py-1 bg-surface rounded-full text-signal font-code text-code text-[12px] border border-outline-variant">
               Subtext Scanner
@@ -99,7 +99,7 @@ export const Dashboard = () => {
             </div>
             <h3 className="font-headline-h4 text-headline-h4 text-clarity mb-1">Contrast Meanings</h3>
             <p className="font-caption text-caption text-on-surface-variant mb-4">
-              Uji ketahanan argumen Anda dengan menghadapkannya langsung pada antitesis ekstrem yang dihasilkan secara dialektis.
+              Test the resilience of your arguments by confronting them directly with extreme dialectically generated antitheses.
             </p>
             <div className="inline-flex px-2 py-1 bg-surface rounded-full text-signal font-code text-code text-[12px] border border-outline-variant">
               Dialectic Engine
@@ -111,8 +111,8 @@ export const Dashboard = () => {
       {/* CLAROS Acronym / Phases Section */}
       <section className="mb-12 relative">
         <div className="text-center mb-10">
-          <h2 className="font-headline-h2 text-headline-h2 text-clarity mb-2">Metodologi C.L.A.R.O.S</h2>
-          <p className="font-body-md text-body-md text-ground">Sebuah proses dekonstruksi dan rekonstruksi kedaulatan kognitif Anda.</p>
+          <h2 className="font-headline-h2 text-headline-h2 text-clarity mb-2">C.L.A.R.O.S Methodology</h2>
+          <p className="font-body-md text-body-md text-ground">A process of deconstruction and reconstruction of your cognitive sovereignty.</p>
         </div>
         <div className="flex flex-col space-y-4">
           {/* C */}
@@ -120,7 +120,7 @@ export const Dashboard = () => {
             <div className="font-display-h1 text-display-h1 text-signal opacity-30 mr-6 leading-none w-16 text-center select-none">C</div>
             <div>
               <h4 className="font-headline-h4 text-headline-h4 text-clarity mb-1">Confront (BeliefAudit)</h4>
-              <p className="font-caption text-caption text-on-surface-variant">Audit 15 pertanyaan reflektif untuk menginventarisasi keyakinan kognitif Anda tanpa penghakiman.</p>
+              <p className="font-caption text-caption text-on-surface-variant">Audit 15 reflective questions to inventory your cognitive beliefs without judgment.</p>
             </div>
           </div>
           
@@ -130,14 +130,14 @@ export const Dashboard = () => {
               <div className="font-display-h1 text-display-h1 text-pulse opacity-30 mr-6 leading-none w-16 text-center select-none">L</div>
               <div>
                 <h4 className="font-headline-h4 text-headline-h4 text-clarity mb-1">Locate (Origin Map)</h4>
-                <p className="font-caption text-caption text-on-surface-variant">Lacak dan plot keyakinan Anda dalam peta 2D: asal usul informasi vs tingkat keyakinan Anda.</p>
+                <p className="font-caption text-caption text-on-surface-variant">Track and plot your beliefs on a 2D map: origin of information vs. your confidence level.</p>
               </div>
             </div>
             <div className="flex items-start p-5 bg-abyss rounded-lg border border-outline-variant/30 hover:border-outline-variant transition-colors">
               <div className="font-display-h1 text-display-h1 text-pulse opacity-30 mr-6 leading-none w-16 text-center select-none">A</div>
               <div>
                 <h4 className="font-headline-h4 text-headline-h4 text-clarity mb-1">Analyze + Rewire (Gym)</h4>
-                <p className="font-caption text-caption text-on-surface-variant">Uji ketahanan penalaran Anda melalui latihan steel-manning dan simulasi skenario bias.</p>
+                <p className="font-caption text-caption text-on-surface-variant">Test your reasoning resilience through steel-manning exercises and bias scenario simulations.</p>
               </div>
             </div>
           </div>
@@ -147,7 +147,7 @@ export const Dashboard = () => {
             <div className="font-display-h1 text-display-h1 text-signal opacity-80 mr-6 leading-none w-16 text-center select-none">R</div>
             <div>
               <h4 className="font-headline-h4 text-headline-h4 text-clarity mb-1">Rewire (Active Gymnasium)</h4>
-              <p className="font-caption text-caption text-on-surface-variant">Inflection Point. Rekonstruksi pola pikir dan kembangkan argumen menggunakan konsep yang lolos validasi aktif.</p>
+              <p className="font-caption text-caption text-on-surface-variant">Inflection Point. Reconstruct your mindset and develop arguments using concepts that passed active validation.</p>
               <div className="mt-2 inline-flex items-center text-[12px] font-label-sm text-pulse uppercase tracking-wide">
                 <span className="w-2 h-2 rounded-full bg-pulse mr-2 animate-pulse"></span> Active Phase
               </div>
@@ -160,14 +160,14 @@ export const Dashboard = () => {
               <div className="font-display-h1 text-display-h1 text-ground opacity-20 mr-6 leading-none w-16 text-center select-none">O</div>
               <div>
                 <h4 className="font-headline-h4 text-headline-h4 text-clarity mb-1">Own (Clarity Score)</h4>
-                <p className="font-caption text-caption text-on-surface-variant">Lihat perkembangan kejernihan berpikir Anda secara kuantitatif melalui skor clarity terintegrasi.</p>
+                <p className="font-caption text-caption text-on-surface-variant">View the progression of your clarity of thought quantitatively through an integrated clarity score.</p>
               </div>
             </div>
             <div className="flex items-start p-5 bg-abyss rounded-lg border border-outline-variant/30 hover:border-outline-variant transition-colors">
               <div className="font-display-h1 text-display-h1 text-ground opacity-20 mr-6 leading-none w-16 text-center select-none">S</div>
               <div>
                 <h4 className="font-headline-h4 text-headline-h4 text-clarity mb-1">Sustain (Progress Ledger)</h4>
-                <p className="font-caption text-caption text-on-surface-variant">Lakukan audit ulang terjadwal setelah 7, 14, dan 30 hari untuk menguji kestabilan pergeseran kognitif Anda.</p>
+                <p className="font-caption text-caption text-on-surface-variant">Perform scheduled re-audits after 7, 14, and 30 days to test the stability of your cognitive shift.</p>
               </div>
             </div>
           </div>
