@@ -93,7 +93,7 @@ export const CriticalGym = () => {
           <div className="mb-6">
             <span className="font-label-sm text-label-sm text-pulse uppercase tracking-wider font-semibold">LEVEL 1: EXPOSE (ACTIVE)</span>
             <h2 className="font-headline-h3 text-headline-h3 text-clarity mt-1">Steel-manning Challenge</h2>
-            <p className="font-caption text-caption text-ground mt-1">Lawan bias konformitas dengan menyusun argumen terkuat untuk perspektif yang Anda tentang.</p>
+            <p className="font-caption text-caption text-ground mt-1">Counter conformity bias by structuring the strongest argument for the perspective you oppose.</p>
           </div>
 
           <div className="bg-surface p-4 rounded-lg border border-outline-variant/30 mb-6">
@@ -110,7 +110,7 @@ export const CriticalGym = () => {
             <div className="space-y-4">
               <div>
                 <label className="block font-label-sm text-label-sm text-on-surface-variant mb-2">
-                  Tulis pembelaan terbaik Anda untuk argumen di atas (Gunakan nada logis, netral, tanpa kata-kata emosional):
+                  Write your best defense for the argument above (Use a logical, neutral tone, without emotional words):
                 </label>
                 <textarea
                   value={steelManInput}
@@ -129,17 +129,17 @@ export const CriticalGym = () => {
                     : 'bg-gradient-signal-dark text-white hover:opacity-90 active:scale-95 shadow-lg shadow-signal/20'
                 }`}
               >
-                {steelManLoading ? 'AI Sedang Menganalisis Struktur Argumen...' : 'Kirim & Uji Validitas'}
+                {steelManLoading ? 'AI is Analyzing Argument Structure...' : 'Submit & Test Validity'}
               </button>
               {steelManInput.trim().length < 30 && (
-                <div className="text-[11px] text-caution text-center">Argumen terlalu pendek (Min. 30 karakter)</div>
+                <div className="text-[11px] text-caution text-center">Argument is too short (Min. 30 characters)</div>
               )}
             </div>
           ) : (
             <div className="space-y-6 animate-fade-in">
               <div className="bg-surface-container-high p-5 rounded-lg border border-outline-variant/30">
                 <div className="flex justify-between items-baseline mb-4">
-                  <div className="font-headline-h4 text-headline-h4 text-clarity">Hasil Analisis Argumen</div>
+                  <div className="font-headline-h4 text-headline-h4 text-clarity">Argument Analysis Results</div>
                   <span className={`text-xs font-semibold px-2 py-0.5 rounded ${
                     steelManResult.score >= 80 ? 'bg-growth/20 text-growth' : steelManResult.score >= 50 ? 'bg-pulse/20 text-pulse' : 'bg-alert/20 text-alert'
                   }`}>
@@ -186,7 +186,7 @@ export const CriticalGym = () => {
                   onClick={() => setActiveExercise(null)}
                   className="px-6 py-2 bg-gradient-signal-dark text-white rounded-full font-label-sm text-label-sm"
                 >
-                  Kembali ke Regimen
+                  Back to Regimen
                 </button>
               </div>
             </div>
@@ -206,7 +206,7 @@ export const CriticalGym = () => {
           <div className="mb-6">
             <span className="font-label-sm text-label-sm text-signal uppercase tracking-wider font-semibold">LEVEL 2: SIMULATE (ACTIVE)</span>
             <h2 className="font-headline-h3 text-headline-h3 text-clarity mt-1">Scenario Simulator</h2>
-            <p className="font-caption text-caption text-ground mt-1">Navigasi pohon dialog melawan bias kognitif Anda untuk mempertahankan kedaulatan berpikir.</p>
+            <p className="font-caption text-caption text-ground mt-1">Navigate the dialogue tree against your cognitive biases to maintain sovereignty of thought.</p>
           </div>
 
           <div className="bg-surface p-5 rounded-lg border border-outline-variant/30 min-h-[120px] mb-8 relative flex items-start gap-4">
@@ -248,7 +248,7 @@ export const CriticalGym = () => {
                 onClick={handleResetScenario}
                 className="px-6 py-2.5 bg-transparent border border-outline-variant text-on-surface hover:text-signal hover:border-signal rounded-full font-label-sm text-label-sm active:scale-95 transition-all"
               >
-                Mulai Ulang Skenario
+                Restart Scenario
               </button>
             </div>
           )}
@@ -263,9 +263,9 @@ export const CriticalGym = () => {
             
             {/* Regimen Cards */}
             <div className="flex items-center gap-4 mb-2">
-              <h2 className="font-headline-h2 text-headline-h2 text-clarity">Latihan Hari Ini</h2>
+              <h2 className="font-headline-h2 text-headline-h2 text-clarity">Today's Training</h2>
               <div className="h-[1px] flex-grow bg-outline-variant/30"></div>
-              <span className="font-label-sm text-label-sm text-ground select-none">3 Tingkatan Latihan</span>
+              <span className="font-label-sm text-label-sm text-ground select-none">3 Training Levels</span>
             </div>
 
             <div className="space-y-4">
@@ -280,7 +280,7 @@ export const CriticalGym = () => {
                     <h3 className="font-headline-h4 text-headline-h4 text-clarity">Expose: Steel-manning</h3>
                   </div>
                   <p className="font-caption text-caption text-ground">
-                    Konstruksi argumen terkuat untuk pandangan oposisi tanpa fallacy. Melatih objektivitas kognitif.
+                    Construct the strongest argument for opposing views without fallacy. Train cognitive objectivity.
                   </p>
                 </div>
                 <button
@@ -314,7 +314,7 @@ export const CriticalGym = () => {
                   className="w-full md:w-auto bg-gradient-signal-dark text-white px-5 py-2 rounded-full font-label-sm text-label-sm hover:opacity-95 transition-all text-center flex items-center justify-center gap-1.5 cursor-pointer shadow-md shadow-signal/20 active:scale-95"
                 >
                   <span className="material-symbols-outlined text-[18px]" style={{ fontVariationSettings: "'FILL' 1" }}>play_arrow</span>
-                  Mulai Latihan
+                  Start Training
                 </button>
               </div>
 
@@ -335,7 +335,7 @@ export const CriticalGym = () => {
                     <h3 className="font-headline-h4 text-headline-h4 text-clarity">Discuss: Structured Debate</h3>
                   </div>
                   <p className="font-caption text-caption text-ground">
-                    Debat kognitif peer-to-peer terstruktur dengan moderasi netral. Completedkan Level 2 untuk membuka.
+                    Structured peer-to-peer cognitive debate with neutral moderation. Complete Level 2 to unlock.
                   </p>
                 </div>
                 
@@ -391,19 +391,19 @@ export const CriticalGym = () => {
                     type="text"
                     value={debateInput}
                     onChange={(e) => setDebateInput(e.target.value)}
-                    placeholder="Tulis sanggahan netral Anda..."
+                    placeholder="Write your neutral rebuttal..."
                     className="flex-grow bg-[#1c1b1b] border border-outline-variant rounded-full px-4 py-2 text-xs text-on-surface outline-none focus:border-pulse"
                   />
                   <button
                     type="submit"
                     className="px-5 py-2 bg-pulse hover:bg-[#9a84b8] text-white rounded-full text-xs font-semibold active:scale-95 transition-all"
                   >
-                    Kirim
+                    Send
                   </button>
                 </form>
                 {trainProgress.discussCompleted && (
                   <div className="mt-3 text-center text-[11px] text-growth font-medium select-none">
-                    Latihan selesai! Badge "Philosopher King" telah didapatkan.
+                    Training complete! "Philosopher King" badge acquired.
                   </div>
                 )}
               </div>

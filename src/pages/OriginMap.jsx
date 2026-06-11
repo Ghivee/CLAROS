@@ -27,12 +27,12 @@ export const OriginMap = () => {
     return (
       <div className="flex flex-col items-center justify-center text-center py-20 bg-abyss border border-outline-variant/30 rounded-xl max-w-[700px] mx-auto">
         <span className="material-symbols-outlined text-signal text-5xl mb-4 animate-bounce">radar</span>
-        <h2 className="font-headline-h2 text-headline-h2 text-clarity mb-2">Peta Confidence Belum Aktif</h2>
+        <h2 className="font-headline-h2 text-headline-h2 text-clarity mb-2">Confidence Map Not Active</h2>
         <p className="font-body-md text-body-md text-ground max-w-[500px] mb-8">
-          Origin Map memerlukan data audit keyakinan Anda terlebih dahulu. Silakan ikuti tes Belief Audit pertama Anda untuk memetakan keyakinan.
+          The Origin Map requires your belief audit data first. Please take your first Belief Audit to map your beliefs.
         </p>
         <Link to="/audit" className="px-6 py-3 bg-gradient-signal-dark text-white rounded-full font-label-sm text-label-sm shadow-lg shadow-signal/20 active:scale-95 transition-all">
-          Mulai Audit Pertama
+          Start First Audit
         </Link>
       </div>
     );
@@ -111,9 +111,9 @@ export const OriginMap = () => {
       if (data.type === 'benchmark') {
         return (
           <div className="bg-surface-container-highest border border-outline-variant rounded p-3 shadow-xl z-20">
-            <div className="text-ground font-label-sm text-label-sm mb-1 uppercase tracking-wider">Benchmark Rata-rata</div>
+            <div className="text-ground font-label-sm text-label-sm mb-1 uppercase tracking-wider">Average Benchmark</div>
             <div className="font-caption text-caption text-on-surface-variant">Source: {data.source}</div>
-            <div className="font-caption text-caption text-on-surface-variant">Confidence Rata-rata: {data.y}%</div>
+            <div className="font-caption text-caption text-on-surface-variant">Average Confidence: {data.y}%</div>
           </div>
         );
       }
@@ -148,7 +148,7 @@ export const OriginMap = () => {
               <span className="font-label-sm text-label-sm text-pulse uppercase tracking-wider select-none font-semibold">LOCATE PHASE ACTIVE</span>
             </div>
             <h1 className="font-display-h1-mobile text-headline-h2 text-clarity mb-1">Origin Map</h1>
-            <p className="font-caption text-caption text-ground max-w-md">Memetakan sumber keyakinan Anda (X) terhadap tingkat keyakinan Anda (Y).</p>
+            <p className="font-caption text-caption text-ground max-w-md">Mapping the source of your belief (X) against your confidence level (Y).</p>
           </div>
           {/* Controls */}
           <div className="flex items-center gap-2 self-end sm:self-auto">
@@ -171,7 +171,7 @@ export const OriginMap = () => {
                   ? 'bg-signal/20 border-signal text-signal' 
                   : 'bg-surface-container-high border-outline-variant hover:bg-surface-bright text-ground'
               }`}
-              title="Toggle Rata-rata Benchmark Anonim"
+              title="Toggle Anonymous Average Benchmark"
             >
               <span className="material-symbols-outlined text-[18px]">compare</span>
             </button>
@@ -183,7 +183,7 @@ export const OriginMap = () => {
           
           <div className="w-full h-[320px] relative z-10">
             <ResponsiveContainer width="100%" height="100%">
-              <ScatterChart margin={{ top: 15, right: 15, bottom: 15, left: 15 }}>
+              <ScatterChart margin={{ top: 15, right: 15, bottom: 15, left: -20 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(146, 143, 159, 0.05)" />
                 
                 {/* Custom X Axis (Source Quality) */}
@@ -194,10 +194,10 @@ export const OriginMap = () => {
                   domain={[0, 100]} 
                   ticks={[20, 45, 70, 90]}
                   tickFormatter={(val) => {
-                    if (val === 20) return "Sosmed";
-                    if (val === 45) return "Agregator";
-                    if (val === 70) return "Primer";
-                    if (val === 90) return "Riset";
+                    if (val === 20) return "Social";
+                    if (val === 45) return "Aggregate";
+                    if (val === 70) return "Primary";
+                    if (val === 90) return "Research";
                     return "";
                   }}
                   stroke="#888780"
@@ -212,9 +212,9 @@ export const OriginMap = () => {
                   domain={[0, 100]} 
                   ticks={[15, 50, 85]}
                   tickFormatter={(val) => {
-                    if (val === 15) return "Ragu";
-                    if (val === 50) return "Sedang";
-                    if (val === 85) return "Yakin";
+                    if (val === 15) return "Doubt";
+                    if (val === 50) return "Moderate";
+                    if (val === 85) return "Confident";
                     return "";
                   }}
                   stroke="#888780"
@@ -288,14 +288,14 @@ export const OriginMap = () => {
               <div className="w-2.5 h-2.5 rounded-full bg-alert"></div> Echo Chamber
             </div>
             <div className="flex items-center gap-1.5">
-              <div className="w-2.5 h-2.5 rounded-full bg-pulse"></div> Belum Terverifikasi
+              <div className="w-2.5 h-2.5 rounded-full bg-pulse"></div> Unverified
             </div>
             <div className="flex items-center gap-1.5">
               <div className="w-2.5 h-2.5 rounded-full bg-growth"></div> Terverifikasi
             </div>
             {showBenchmark && (
               <div className="flex items-center gap-1.5">
-                <div className="w-2.5 h-2.5 rounded-full border border-dashed border-ground/60 bg-transparent"></div> Rata-rata Pengguna
+                <div className="w-2.5 h-2.5 rounded-full border border-dashed border-ground/60 bg-transparent"></div> Average User
               </div>
             )}
           </div>
@@ -330,7 +330,7 @@ export const OriginMap = () => {
               <div className="flex justify-between font-caption text-caption mb-1">
                 <span className="text-on-surface-variant">Kedalaman Filter Bubble</span>
                 <span className={selectedAudit.algInfluenceScore > 75 ? 'text-alert font-semibold' : 'text-ground font-medium'}>
-                  {selectedAudit.algInfluenceScore > 75 ? 'Kritis' : 'Sedang'}
+                  {selectedAudit.algInfluenceScore > 75 ? 'Critical' : 'Moderate'}
                 </span>
               </div>
               <div className="w-full h-1.5 bg-surface rounded-full overflow-hidden">
@@ -363,7 +363,7 @@ export const OriginMap = () => {
           <div className="bg-abyss rounded-xl p-5 border border-outline-variant/30 shadow-lg flex-1 flex flex-col justify-between min-h-[280px]">
             <div>
               <div className="flex justify-between items-center mb-4 border-b border-outline-variant/30 pb-3">
-                <h3 className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider select-none font-semibold">Node Terpilih</h3>
+                <h3 className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider select-none font-semibold">Selected Node</h3>
                 <span className="bg-signal/15 text-signal text-xs font-semibold px-2 py-0.5 rounded border border-signal/20 select-none animate-pulse">
                   Analyzing
                 </span>
@@ -397,7 +397,7 @@ export const OriginMap = () => {
                 </div>
                 <p className="font-caption text-[12px] text-on-surface-variant leading-relaxed">
                   {selectedNode.x < 40 && selectedNode.y > 60 
-                    ? `Confidence Anda sangat tinggi (${selectedNode.confidence}%) namun didapat dari paparan pasif media sosial. Kurangi bias konformitas dengan melatih pemikiran kritis di Gym.`
+                    ? `Your confidence is very high (${selectedNode.confidence}%) but it was obtained from passive social media exposure. Reduce conformity bias by training critical thinking in the Gym.`
                     : "Confidence Anda proporsional dengan kualitas validitas informasi primer. Pertahankan penelusuran aktif Anda."
                   }
                 </p>

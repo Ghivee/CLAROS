@@ -119,24 +119,29 @@ export const Navbar = () => {
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div className="absolute top-[85px] left-4 right-4 bg-surface/95 backdrop-blur-xl border border-outline-variant/40 rounded-3xl p-6 shadow-2xl lg:hidden flex flex-col gap-4 animate-in slide-in-from-top-4 fade-in duration-200">
-          <div className="flex flex-col space-y-4">
-            {navLinks.map((link) => (
-              <NavLink 
-                key={link.path}
-                to={link.path} 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={({ isActive }) => 
-                  `text-lg font-medium py-2 px-4 rounded-xl transition-all ${
-                    isActive ? "bg-signal/10 text-signal font-bold" : "text-on-surface hover:bg-surface-variant"
-                  }`
-                }
-              >
-                {link.name}
-              </NavLink>
+          <div className="flex flex-col space-y-2">
+            {navLinks.map((link, index) => (
+              <React.Fragment key={link.path}>
+                <NavLink 
+                  to={link.path} 
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={({ isActive }) => 
+                    `text-lg font-medium py-3 px-4 rounded-xl transition-all border ${
+                      isActive ? "bg-signal/10 text-signal border-signal/30 font-bold" : "text-on-surface border-transparent hover:border-outline-variant/50 hover:bg-surface-variant active:scale-[0.98]"
+                    }`
+                  }
+                >
+                  <div className="flex justify-between items-center">
+                    <span>{link.name}</span>
+                    <span className="material-symbols-outlined text-[18px] opacity-50">chevron_right</span>
+                  </div>
+                </NavLink>
+                {index < navLinks.length - 1 && <div className="h-[1px] w-[90%] mx-auto bg-outline-variant/20"></div>}
+              </React.Fragment>
             ))}
           </div>
 
-          <div className="h-[1px] w-full bg-outline-variant/30 my-2"></div>
+          <div className="h-[1px] w-full bg-outline-variant/40 my-2"></div>
 
           {user ? (
             <div className="flex items-center justify-between px-4 py-3 bg-surface-container-high rounded-xl border border-outline-variant/40">
@@ -144,7 +149,7 @@ export const Navbar = () => {
               <span className="text-sm font-code font-bold text-pulse">⚡ {user.totalXP.toLocaleString()} XP</span>
             </div>
           ) : (
-            <button className="w-full py-3 border border-outline-variant rounded-xl text-on-surface font-medium hover:bg-surface-variant transition-all duration-200">
+            <button className="w-full py-3 border border-outline-variant rounded-xl text-on-surface font-medium hover:bg-surface-variant transition-all duration-200 active:scale-[0.98]">
               Log In
             </button>
           )}
@@ -152,7 +157,7 @@ export const Navbar = () => {
           <Link 
             to="/audit" 
             onClick={() => setIsMobileMenuOpen(false)}
-            className="w-full py-3 text-center bg-gradient-signal-dark text-white rounded-xl font-medium shadow-lg shadow-signal/30"
+            className="w-full py-3 text-center bg-gradient-signal-dark text-white rounded-xl font-medium shadow-lg shadow-signal/30 active:scale-[0.98]"
           >
             Start Audit
           </Link>

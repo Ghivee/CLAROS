@@ -10,9 +10,9 @@ export const ClarityScore = () => {
     return (
       <div className="flex flex-col items-center justify-center text-center py-20 bg-abyss border border-outline-variant/30 rounded-xl max-w-[700px] mx-auto">
         <span className="material-symbols-outlined text-signal text-5xl mb-4 animate-bounce">query_stats</span>
-        <h2 className="font-headline-h2 text-headline-h2 text-clarity mb-2">Clarity Score Belum Aktif</h2>
+        <h2 className="font-headline-h2 text-headline-h2 text-clarity mb-2">Clarity Score Not Active</h2>
         <p className="font-body-md text-body-md text-ground max-w-[500px] mb-8">
-          Clarity Score melacak kemajuan kejernihan berpikir Anda secara historis. Silakan selesaikan Belief Audit untuk mengaktifkan pelacakan.
+          Clarity Score tracks your cognitive clarity progress historically. Please complete the Belief Audit to activate tracking.
         </p>
       </div>
     );
@@ -96,7 +96,7 @@ export const ClarityScore = () => {
           </div>
           <h1 className="font-display-h1-mobile text-headline-h2 text-clarity">Clarity Score</h1>
           <p className="font-body-md text-ground max-w-2xl">
-            Melacak tingkat kemandirian berpikir dan reduksi bias Anda dari waktu ke waktu. Pertahankan kedaulatan kognisi Anda.
+            Tracks your level of independent thinking and bias reduction over time. Maintain your cognitive sovereignty.
           </p>
         </div>
 
@@ -146,7 +146,7 @@ export const ClarityScore = () => {
           </div>
 
           {/* Area Chart Card using Recharts */}
-          <div className="bg-abyss rounded-xl p-5 border border-outline-variant/30 relative overflow-hidden h-[380px] flex flex-col justify-end">
+          <div className="bg-abyss rounded-xl p-2 sm:p-5 border border-outline-variant/30 relative overflow-hidden h-[380px] flex flex-col justify-end">
             <div className="w-full h-[320px] relative z-10">
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={chartData} margin={{ top: 10, right: 10, left: -25, bottom: 0 }}>
@@ -205,7 +205,7 @@ export const ClarityScore = () => {
             <div className="flex items-start justify-between mb-4">
               <h3 className="font-headline-h4 text-headline-h4 text-clarity flex items-center gap-1.5 font-bold">
                 <span className="material-symbols-outlined text-pulse select-none" style={{ fontVariationSettings: "'FILL' 1" }}>workspace_premium</span>
-                Sertifikat Kognitif
+                Cognitive Certificate
               </h3>
               <span className="bg-pulse/10 text-pulse font-code text-[10px] font-bold px-2 py-0.5 rounded border border-pulse/20 select-none">
                 VERIFIED
@@ -315,11 +315,11 @@ export const ClarityScore = () => {
         <div className="bg-abyss rounded-xl p-5 border border-outline-variant/30 flex flex-col gap-4 shadow-md relative overflow-hidden">
           <div className="flex items-center gap-2 select-none">
             <span className="material-symbols-outlined text-tertiary text-[20px]">history_edu</span>
-            <h4 className="font-label-sm text-label-sm text-on-surface font-semibold">Total Audit Selesai</h4>
+            <h4 className="font-label-sm text-label-sm text-on-surface font-semibold">Total Audits Completed</h4>
           </div>
           <div className="flex items-end justify-between">
             <span className="font-headline-h2 text-headline-h2 text-clarity font-extrabold">{audits.length}</span>
-            <span className="font-code text-[11px] text-ground font-medium">Dalam 30 Hari</span>
+            <span className="font-code text-[11px] text-ground font-medium">In 30 Days</span>
           </div>
           {/* Mini history dots */}
           <div className="flex gap-1 mt-2 h-1.5 w-full select-none pointer-events-none">

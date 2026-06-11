@@ -14,7 +14,7 @@ export const initDB = () => {
     const defaultUser = {
       uid: 'user_123',
       email: 'student@example.edu',
-      displayName: 'KognitifSovereign',
+      displayName: 'CognitiveSovereign',
       createdAt: new Date().toISOString(),
       totalXP: 4250,
       clarityScore: 84,
